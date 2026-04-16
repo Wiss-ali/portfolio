@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-display: var(--font-anton);
+}
+
+html,
+body {
+  background: #000000;
+  color: #ffffff;
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display {
+  font-family: var(--font-anton), Impact, "Arial Black", sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Outline text style used for Hero title and Footer name */
+.text-outline {
+  -webkit-text-stroke: 1.5px #ffffff;
+  color: transparent;
+}
+
+.text-outline-dark {
+  -webkit-text-stroke: 1.5px #000000;
+  color: transparent;
+}
+
+/* CTA pill button with neon gradient */
+.btn-pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 2.2rem;
+  border-radius: 9999px;
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  font-size: 0.82rem;
+  background: #0a0a0a;
+  z-index: 1;
+  isolation: isolate;
+  overflow: hidden;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-pill::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1.5px;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #6d5bff 0%, #c13df0 45%, #ff6f3c 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  z-index: -1;
+}
+
+.btn-pill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #6d5bff 0%, #c13df0 45%, #ff6f3c 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: -1;
+}
+
+.btn-pill:hover::after {
+  opacity: 1;
+}
+
+.btn-pill-glow {
+  box-shadow:
+    0 0 0 1px rgba(193, 61, 240, 0.25),
+    0 0 30px rgba(109, 91, 255, 0.35),
+    0 0 60px rgba(255, 111, 60, 0.15);
+}
+
+/* Black surface with rounded top corners (transition between sections) */
+.surface-black {
+  background: #000000;
+  border-top-left-radius: 3rem;
+  border-top-right-radius: 3rem;
+}
+
+.surface-white {
+  background: #f4f4f4;
+  color: #0a0a0a;
+  border-top-left-radius: 3rem;
+  border-top-right-radius: 3rem;
+}
+
+/* Reveal mask used by Services lines */
+.reveal-mask {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.reveal-mask.is-in {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Fine border used on cards */
+.card-border {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Marquee keyframes (fallback) */
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-33.333%); }
+}
+
+/* Services row reveal (text slides up from below a mask) */
+.service-row .service-inner {
+  transform: translateY(110%);
+  transition: transform 900ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+.service-row .service-inner.d2 { transition-delay: 0.08s; }
+.service-row .service-inner.d3 { transition-delay: 0.16s; }
+.service-row.is-in .service-inner { transform: translateY(0); }
+
+.service-row .service-line {
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 900ms cubic-bezier(0.77, 0, 0.175, 1);
+}
+.service-row.is-in .service-line {
+  transform: scaleX(1);
+}
+
+/* Placeholder block used in projects */
+.placeholder-tile {
+  border-radius: 1.25rem;
+  background: linear-gradient(135deg, #2a2a2a 0%, #151515 100%);
+}
