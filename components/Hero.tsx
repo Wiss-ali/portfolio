@@ -100,8 +100,12 @@ export default function Hero() {
       >
         <div className="relative w-[38vw] min-w-[280px] max-w-[620px] aspect-square">
           {!headOk && (
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-neutral-800 to-neutral-950 border border-white/10 flex items-center justify-center text-white/40 text-xs tracking-[0.3em]">
-              /public/robot-head.png
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-neutral-800 to-neutral-950 border border-white/10 flex items-center justify-center">
+              <span className="text-white/25 text-[0.6rem] tracking-[0.3em] uppercase text-center px-4">
+                drop png at
+                <br />
+                public/robot-head.png
+              </span>
             </div>
           )}
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -111,6 +115,7 @@ export default function Hero() {
             onLoad={(e) => {
               const img = e.currentTarget;
               if (img.naturalWidth > 10) setHeadOk(true);
+              else setHeadOk(false);
             }}
             onError={() => setHeadOk(false)}
             className={`absolute inset-0 w-full h-full object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)] transition-opacity duration-500 ${

@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-
 const PROJECTS = [
   {
     n: "01",
@@ -40,69 +38,32 @@ const PROJECTS = [
   },
 ];
 
+const TOP_BASE = 96;
+const TOP_STEP = 28;
+
 export default function Projects() {
-  const rootRef = useRef<HTMLElement | null>(null);
-
-  useEffect(() => {
-    const el = rootRef.current;
-    if (!el) return;
-    const cards = Array.from(
-      el.querySelectorAll<HTMLElement>("[data-card]")
-    );
-
-    const onScroll = () => {
-      const rect = el.getBoundingClientRect();
-      const total = el.offsetHeight - window.innerHeight;
-      const scrolled = Math.min(
-        Math.max(-rect.top, 0),
-        total
-      );
-      const progress = total > 0 ? scrolled / total : 0;
-
-      cards.forEach((card, i) => {
-        const cardProgress = progress * cards.length - i;
-        const next = Math.min(Math.max(cardProgress, 0), 1);
-        // Being pushed back under the next card
-        const scale = 1 - next * 0.06;
-        const y = next * -16;
-        card.style.transform = `translateY(${y}px) scale(${scale})`;
-        card.style.filter = `brightness(${1 - next * 0.25})`;
-      });
-    };
-
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-    };
-  }, []);
-
   return (
     <section
-      ref={rootRef}
       id="projects"
-      className="surface-black relative w-full -mt-12"
-      style={{ minHeight: `${PROJECTS.length * 100}vh` }}
+      className="surface-black relative w-full -mt-12 pt-16 pb-20 md:pb-28"
     >
-      <div className="sticky top-0 h-screen w-full flex flex-col">
-        <div className="pt-24 md:pt-28 pb-6 text-center">
-          <h2 className="font-display text-[clamp(4rem,14vw,13rem)] leading-[0.9] text-white">
-            PROJECTS
-          </h2>
-        </div>
+      <div className="text-center py-12 md:py-20">
+        <h2 className="font-display text-[clamp(4rem,14vw,13rem)] leading-[0.9] text-white">
+          PROJECTS
+        </h2>
+      </div>
 
-        <div className="flex-1 relative px-4 md:px-10 pb-16">
-          {PROJECTS.map((p, i) => (
+      <div className="px-4 md:px-10 space-y-6">
+        {PROJECTS.map((p, i) => {
+          const top = TOP_BASE + i * TOP_STEP;
+          return (
             <article
               key={p.n}
-              data-card
-              className="absolute inset-x-4 md:inset-x-10 rounded-[2rem] card-border bg-black shadow-[0_30px_80px_rgba(0,0,0,0.6)] will-change-transform"
+              className="sticky rounded-[2rem] card-border bg-neutral-950 shadow-[0_30px_80px_rgba(0,0,0,0.6)] overflow-hidden"
               style={{
-                top: `${i * 18}px`,
-                zIndex: 10 + i,
-                height: "calc(100% - 40px)",
+                top: `${top}px`,
+                height: `calc(100vh - ${top + 40}px)`,
+                minHeight: "520px",
               }}
             >
               <header className="flex items-start justify-between px-6 md:px-10 pt-6 md:pt-8">
@@ -121,7 +82,7 @@ export default function Projects() {
                 </div>
                 <a
                   href={p.href}
-                  className="rounded-full border border-white/30 px-5 py-2.5 text-[0.68rem] md:text-xs tracking-[0.25em] text-white hover:bg-white hover:text-black transition-colors"
+                  className="rounded-full border border-white/30 px-5 py-2.5 text-[0.68rem] md:text-xs tracking-[0.25em] text-white hover:bg-white hover:text-black transition-colors whitespace-nowrap"
                 >
                   LIVE PROJECT
                 </a>
@@ -132,13 +93,13 @@ export default function Projects() {
                   <div
                     key={j}
                     style={{ background: c }}
-                    className="rounded-2xl w-full h-full min-h-[100px]"
+                    className="rounded-2xl w-full h-full min-h-[90px]"
                   />
                 ))}
               </div>
             </article>
-          ))}
-        </div>
+          );
+        })}
       </div>
     </section>
   );
