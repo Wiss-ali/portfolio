@@ -50,7 +50,7 @@ section[id] {
   transform-origin: center center;
 }
 .font-title-grad {
-  background: linear-gradient(180deg, #141414 0%, #bdbdbd 22%, #ffffff 50%, #bdbdbd 78%, #141414 100%);
+  background: linear-gradient(180deg, #141414 0%, #b0b0b0 18%, #ffffff 45%, #ffffff 55%, #b0b0b0 72%, #141414 88%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -68,12 +68,12 @@ section[id] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 1.25rem 3.2rem;
+  padding: 1.55rem 3.9rem;
   border-radius: 9999px;
   color: #ffffff;
   font-weight: 600;
-  letter-spacing: 0.09em;
-  font-size: 0.95rem;
+  letter-spacing: 0.1em;
+  font-size: 1rem;
   background: #0a0a0a;
   z-index: 1;
   isolation: isolate;
