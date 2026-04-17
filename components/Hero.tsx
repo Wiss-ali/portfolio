@@ -77,43 +77,43 @@ export default function Hero() {
     <section
       ref={rootRef}
       id="hero"
-      className="relative w-full min-h-screen overflow-hidden bg-black"
+      className="relative w-full min-h-screen overflow-hidden bg-black flex flex-col pt-24 md:pt-28 pb-12"
     >
-      <h1 className="font-display font-flat absolute inset-x-0 top-[10vh] z-10 text-[clamp(4rem,19vw,20rem)] leading-[0.85] text-center text-white select-none pointer-events-none px-[2vw]">
+      <h1 className="font-display font-flat text-[clamp(3.5rem,17vw,18rem)] leading-[0.85] text-center text-white select-none pointer-events-none px-4">
         HI, I&apos;M WISS
       </h1>
 
-      <div
-        ref={headRef}
-        className="pointer-events-none absolute inset-x-0 top-[22vh] flex justify-center z-20 will-change-transform"
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/robot-head.png"
-          alt="Wiss — 3D head"
-          className="w-[46vw] min-w-[320px] max-w-[740px] h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
-        />
-      </div>
-
-      <div className="absolute left-[14%] md:left-[16%] top-[48vh] z-30 max-w-[20rem]">
-        <p className="text-[0.85rem] md:text-base tracking-[0.16em] leading-relaxed text-white/90 uppercase">
+      <div className="flex-1 grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-8 md:gap-10 px-6 md:px-16 mt-6">
+        <p className="justify-self-center md:justify-self-start text-[0.85rem] md:text-sm lg:text-base tracking-[0.16em] leading-relaxed text-white/90 uppercase max-w-[18rem] text-center md:text-left order-2 md:order-1">
           A web designer passionate
           <br />
           about crafting bold and
           <br />
           memorable projects <span className="text-lg">😉</span>
         </p>
+
+        <div
+          ref={headRef}
+          className="pointer-events-none justify-self-center will-change-transform order-1 md:order-2"
+        >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/robot-head.png"
+            alt="Wiss — 3D head"
+            className="w-[60vw] max-w-[360px] md:w-[34vw] md:max-w-[500px] h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
+          />
+        </div>
+
+        <a
+          href="#contact"
+          ref={btnRef}
+          className="btn-pill btn-pill-glow justify-self-center md:justify-self-end will-change-transform order-3"
+        >
+          CONTACT ME
+        </a>
       </div>
 
-      <a
-        href="#contact"
-        ref={btnRef}
-        className="btn-pill btn-pill-glow absolute right-[14%] md:right-[16%] top-[48vh] z-30 will-change-transform"
-      >
-        CONTACT ME
-      </a>
-
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-[0.65rem] tracking-[0.3em] text-white/40">
+      <div className="text-center text-[0.65rem] tracking-[0.3em] text-white/40 mt-6">
         SCROLL ↓
       </div>
     </section>
