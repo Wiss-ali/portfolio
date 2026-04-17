@@ -40,7 +40,7 @@ const DECOR: Decor[] = [
     side: "left",
     pair: "bottom",
     vPos: { bottom: "8%" },
-    restX: -2,
+    restX: 8,
     rotate: 0,
     delay: 0,
   },
