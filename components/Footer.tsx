@@ -111,9 +111,9 @@ export default function Footer() {
       <div className="mt-16 overflow-hidden">
         <div
           className="flex items-center gap-10 md:gap-16 w-max"
-          style={{ animation: "marquee-x 28s linear infinite" }}
+          style={{ animation: "marquee-left 32s linear infinite" }}
         >
-          {[...SHAPES, ...SHAPES, ...SHAPES].map((s, i) => (
+          {[...SHAPES, ...SHAPES].map((s, i) => (
             <div key={i} className="shrink-0 flex items-center justify-center">
               <Shape type={s.type} color={s.color} />
             </div>

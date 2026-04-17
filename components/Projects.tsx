@@ -1,71 +1,38 @@
 "use client";
 
 const PROJECTS = [
-  {
-    n: "01",
-    client: "CLIENT",
-    name: "Skyline Studios",
-    href: "#",
-    palette: ["#ff7a3c", "#c13df0", "#6d5bff", "#32d3a6"],
-  },
-  {
-    n: "02",
-    client: "CLIENT",
-    name: "Aurora Labs",
-    href: "#",
-    palette: ["#2dd4ff", "#8ef0c6", "#ffd166", "#ff477e"],
-  },
-  {
-    n: "03",
-    client: "CLIENT",
-    name: "MetaForm Creations",
-    href: "#",
-    palette: ["#ffd166", "#ff6f3c", "#6d5bff", "#2dd4ff"],
-  },
-  {
-    n: "04",
-    client: "CLIENT",
-    name: "Pixel Forge",
-    href: "#",
-    palette: ["#a855f7", "#ff477e", "#32d3a6", "#ff6f3c"],
-  },
-  {
-    n: "05",
-    client: "CLIENT",
-    name: "Violet Kiln",
-    href: "#",
-    palette: ["#6d5bff", "#c13df0", "#8ef0c6", "#ffd166"],
-  },
+  { n: "01", client: "CLIENT", name: "Skyline Studios", href: "#",
+    palette: ["#ff7a3c", "#c13df0", "#6d5bff", "#32d3a6"] },
+  { n: "02", client: "CLIENT", name: "Aurora Labs", href: "#",
+    palette: ["#2dd4ff", "#8ef0c6", "#ffd166", "#ff477e"] },
+  { n: "03", client: "CLIENT", name: "MetaForm Creations", href: "#",
+    palette: ["#ffd166", "#ff6f3c", "#6d5bff", "#2dd4ff"] },
+  { n: "04", client: "CLIENT", name: "Pixel Forge", href: "#",
+    palette: ["#a855f7", "#ff477e", "#32d3a6", "#ff6f3c"] },
+  { n: "05", client: "CLIENT", name: "Violet Kiln", href: "#",
+    palette: ["#6d5bff", "#c13df0", "#8ef0c6", "#ffd166"] },
 ];
-
-const TOP_BASE = 96;
-const TOP_STEP = 28;
 
 export default function Projects() {
   return (
     <section
       id="projects"
-      className="surface-black relative w-full -mt-12 pt-16 pb-20 md:pb-28"
+      className="surface-black relative w-full -mt-12 pt-20 pb-32"
     >
-      <div className="text-center py-12 md:py-20">
+      <div className="text-center py-12 md:py-16">
         <h2 className="font-display text-[clamp(4rem,14vw,13rem)] leading-[0.9] text-white">
           PROJECTS
         </h2>
       </div>
 
-      <div className="px-4 md:px-10 space-y-6">
-        {PROJECTS.map((p, i) => {
-          const top = TOP_BASE + i * TOP_STEP;
-          return (
-            <article
-              key={p.n}
-              className="sticky rounded-[2rem] card-border bg-neutral-950 shadow-[0_30px_80px_rgba(0,0,0,0.6)] overflow-hidden"
-              style={{
-                top: `${top}px`,
-                height: `calc(100vh - ${top + 40}px)`,
-                minHeight: "520px",
-              }}
-            >
+      <div className="px-4 md:px-10">
+        {PROJECTS.map((p, i) => (
+          <div
+            key={p.n}
+            className="sticky mb-6"
+            style={{ top: `${80 + i * 40}px` }}
+          >
+            <article className="rounded-[2rem] card-border bg-neutral-950 shadow-[0_30px_80px_rgba(0,0,0,0.6)] overflow-hidden h-[72vh] min-h-[520px]">
               <header className="flex items-start justify-between px-6 md:px-10 pt-6 md:pt-8">
                 <div className="flex items-start gap-5 md:gap-8">
                   <span className="font-display text-3xl md:text-5xl text-white/90">
@@ -93,13 +60,13 @@ export default function Projects() {
                   <div
                     key={j}
                     style={{ background: c }}
-                    className="rounded-2xl w-full h-full min-h-[90px]"
+                    className="rounded-2xl w-full h-full min-h-[80px]"
                   />
                 ))}
               </div>
             </article>
-          );
-        })}
+          </div>
+        ))}
       </div>
     </section>
   );
