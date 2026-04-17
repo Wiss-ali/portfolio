@@ -46,7 +46,7 @@ body {
   transform-origin: center center;
 }
 .font-title-grad {
-  background: linear-gradient(180deg, #5a5a5a 0%, #f2f2f2 38%, #ffffff 100%);
+  background: linear-gradient(180deg, #3f3f3f 0%, #e6e6e6 45%, #ffffff 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
