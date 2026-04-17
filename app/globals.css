@@ -50,7 +50,7 @@ section[id] {
   transform-origin: center center;
 }
 .font-title-grad {
-  background: linear-gradient(180deg, #141414 0%, #bdbdbd 38%, #ffffff 92%);
+  background: linear-gradient(180deg, #141414 0%, #bdbdbd 22%, #ffffff 50%, #bdbdbd 78%, #141414 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

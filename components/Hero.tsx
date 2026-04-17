@@ -77,9 +77,9 @@ export default function Hero() {
     <section
       ref={rootRef}
       id="hero"
-      className="relative w-full min-h-screen overflow-hidden bg-black flex flex-col pt-10 md:pt-12 pb-12"
+      className="relative w-full min-h-screen overflow-hidden bg-black flex flex-col pt-10 md:pt-12 lg:pt-14 xl:pt-20 2xl:pt-24 pb-12"
     >
-      <h1 className="font-title font-title-grad text-[clamp(3.5rem,16vw,22rem)] leading-[0.9] text-center select-none pointer-events-none px-4">
+      <h1 className="font-title font-title-grad text-[clamp(3.5rem,14vw,18rem)] leading-[0.9] text-center select-none pointer-events-none px-4">
         HI, I&apos;M WISS
       </h1>
 
@@ -98,7 +98,7 @@ export default function Hero() {
             <img
               src="/robot-head.png"
               alt="Wiss — 3D head"
-              className="w-[72vw] max-w-[440px] md:w-[44vw] md:max-w-[1120px] h-auto object-contain [filter:drop-shadow(0_-12px_18px_rgba(0,0,0,0.7))_drop-shadow(0_30px_40px_rgba(0,0,0,0.5))]"
+              className="w-[72vw] max-w-[440px] md:w-[36vw] md:max-w-[820px] h-auto object-contain [filter:drop-shadow(0_-12px_18px_rgba(0,0,0,0.7))_drop-shadow(0_30px_40px_rgba(0,0,0,0.5))]"
             />
           </div>
         </div>
