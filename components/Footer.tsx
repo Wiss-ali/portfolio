@@ -1,7 +1,6 @@
 "use client";
 
 const SHAPES = [
-  // Each shape is a tiny SVG primitive with a color
   { type: "cross", color: "#f4f4f4" },
   { type: "dots2", color: "#ff1f7a" },
   { type: "arc", color: "#f4f4f4" },
@@ -107,7 +106,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Infinite marquee of colored shapes */}
       <div className="mt-16 overflow-hidden">
         <div
           className="flex items-center gap-10 md:gap-16 w-max"

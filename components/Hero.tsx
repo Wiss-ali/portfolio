@@ -113,9 +113,7 @@ export default function Hero() {
             src="/robot-head.png"
             alt="Wiss — 3D head"
             onLoad={(e) => {
-              const img = e.currentTarget;
-              if (img.naturalWidth > 10) setHeadOk(true);
-              else setHeadOk(false);
+              if (e.currentTarget.naturalWidth > 10) setHeadOk(true);
             }}
             onError={() => setHeadOk(false)}
             className={`absolute inset-0 w-full h-full object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)] transition-opacity duration-500 ${

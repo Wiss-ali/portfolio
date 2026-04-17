@@ -30,7 +30,6 @@ export default function Contact() {
       id="contact"
       className="surface-white relative w-full py-24 md:py-32 overflow-hidden -mt-12"
     >
-      {/* Decorative 3D shapes */}
       <div
         data-reveal
         className="absolute top-6 right-8 md:right-16 w-24 h-24 md:w-40 md:h-40 pointer-events-none opacity-0 translate-y-4 transition-all duration-700 [&.is-in]:opacity-100 [&.is-in]:translate-y-0"

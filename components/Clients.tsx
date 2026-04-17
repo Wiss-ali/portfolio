@@ -52,13 +52,8 @@ export default function Clients() {
       const delta = scrollY - lastScroll;
       lastScroll = scrollY;
 
-      // Scroll-driven marquee: top row drifts right, bottom row drifts left
-      topOffset -= delta * 0.55;
-      bottomOffset += delta * 0.55;
-
-      // Passive drift so it keeps moving even when idle
-      topOffset -= 0.2;
-      bottomOffset += 0.2;
+      topOffset -= delta * 0.55 + 0.2;
+      bottomOffset += delta * 0.55 + 0.2;
 
       const top = topTrackRef.current;
       const bottom = bottomTrackRef.current;
