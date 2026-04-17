@@ -84,7 +84,7 @@ export default function Hero() {
       </h1>
 
       <div className="flex-1 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-6 px-6 mt-4 md:mt-0">
-        <p className="text-[0.85rem] md:text-sm lg:text-base tracking-[0.16em] leading-relaxed text-white/90 uppercase max-w-[18rem] text-center md:text-right order-2 md:order-1">
+        <p className="md:-mt-[5vw] text-[0.85rem] md:text-sm lg:text-base tracking-[0.16em] leading-relaxed text-white/90 uppercase max-w-[18rem] text-center md:text-right order-2 md:order-1">
           A web designer passionate
           <br />
           about crafting bold and
@@ -92,13 +92,13 @@ export default function Hero() {
           memorable projects <span className="text-lg">😉</span>
         </p>
 
-        <div className="order-1 md:order-2 md:-mt-[9vw]">
+        <div className="order-1 md:order-2 md:-mt-[10vw]">
           <div ref={headRef} className="pointer-events-none will-change-transform">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/robot-head.png"
               alt="Wiss — 3D head"
-              className="w-[70vw] max-w-[420px] md:w-[42vw] md:max-w-[620px] h-auto object-contain [filter:drop-shadow(0_-12px_18px_rgba(0,0,0,0.7))_drop-shadow(0_30px_40px_rgba(0,0,0,0.5))]"
+              className="w-[72vw] max-w-[440px] md:w-[44vw] md:max-w-[680px] h-auto object-contain [filter:drop-shadow(0_-12px_18px_rgba(0,0,0,0.7))_drop-shadow(0_30px_40px_rgba(0,0,0,0.5))]"
             />
           </div>
         </div>
@@ -106,7 +106,7 @@ export default function Hero() {
         <a
           href="#contact"
           ref={btnRef}
-          className="btn-pill btn-pill-glow will-change-transform order-3"
+          className="btn-pill btn-pill-glow will-change-transform order-3 md:-mt-[5vw]"
         >
           CONTACT ME
         </a>

@@ -36,16 +36,17 @@ body {
   transform-origin: center center;
 }
 
-/* Hero title: Poppins ExtraBold, slightly stretched, soft top→bottom gradient */
+/* Hero title: Poppins ExtraBold, lightly stretched and slightly flattened,
+   soft top→bottom dark-to-white gradient for a subtle texture */
 .font-title {
   font-family: var(--font-poppins), Impact, sans-serif;
   font-weight: 800;
   letter-spacing: -0.02em;
-  transform: scaleX(1.08);
+  transform: scale(1.02, 0.88);
   transform-origin: center center;
 }
 .font-title-grad {
-  background: linear-gradient(180deg, #ffffff 0%, #ffffff 62%, #b5b5b5 100%);
+  background: linear-gradient(180deg, #5a5a5a 0%, #f2f2f2 38%, #ffffff 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -63,12 +64,12 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.9rem 2.2rem;
+  padding: 1.1rem 2.8rem;
   border-radius: 9999px;
   color: #ffffff;
   font-weight: 600;
-  letter-spacing: 0.08em;
-  font-size: 0.82rem;
+  letter-spacing: 0.09em;
+  font-size: 0.9rem;
   background: #0a0a0a;
   z-index: 1;
   isolation: isolate;
