@@ -1,36 +1,35 @@
 "use client";
 
 const SHAPES = [
-  // Each shape is a tiny SVG primitive with a color
-  { type: "cross", color: "#f4f4f4" },
-  { type: "dots2", color: "#ff1f7a" },
-  { type: "arc", color: "#f4f4f4" },
-  { type: "circle", color: "#7c4dff" },
-  { type: "chevron", color: "#f4f4f4" },
-  { type: "halfmoon", color: "#ff9f1c" },
-  { type: "triangle-up", color: "#f4f4f4" },
-  { type: "circle", color: "#ff2f92" },
-  { type: "cross", color: "#7c4dff" },
-  { type: "dots2", color: "#ffd166" },
+  "cross",
+  "dots2",
+  "arc",
+  "circle",
+  "chevron",
+  "halfmoon",
+  "triangle-up",
+  "circle",
+  "cross",
+  "dots2",
 ];
 
-function Shape({ type, color }: { type: string; color: string }) {
-  const size = 72;
+function Shape({ type }: { type: string }) {
+  const size = 96;
   switch (type) {
     case "cross":
       return (
         <svg viewBox="0 0 100 100" width={size} height={size}>
           <path
             d="M50 5 L60 40 L95 50 L60 60 L50 95 L40 60 L5 50 L40 40 Z"
-            fill={color}
+            fill="currentColor"
           />
         </svg>
       );
     case "dots2":
       return (
         <svg viewBox="0 0 120 60" width={size * 1.3} height={size * 0.65}>
-          <circle cx="30" cy="30" r="28" fill={color} />
-          <circle cx="90" cy="30" r="28" fill={color} />
+          <circle cx="30" cy="30" r="28" fill="currentColor" />
+          <circle cx="90" cy="30" r="28" fill="currentColor" />
         </svg>
       );
     case "arc":
@@ -38,7 +37,7 @@ function Shape({ type, color }: { type: string; color: string }) {
         <svg viewBox="0 0 100 100" width={size} height={size}>
           <path
             d="M10 90 A 40 40 0 0 1 90 90 L 70 90 A 20 20 0 0 0 30 90 Z"
-            fill={color}
+            fill="currentColor"
             transform="rotate(-90 50 50)"
           />
         </svg>
@@ -46,25 +45,25 @@ function Shape({ type, color }: { type: string; color: string }) {
     case "circle":
       return (
         <svg viewBox="0 0 100 100" width={size} height={size}>
-          <circle cx="50" cy="50" r="45" fill={color} />
+          <circle cx="50" cy="50" r="45" fill="currentColor" />
         </svg>
       );
     case "chevron":
       return (
         <svg viewBox="0 0 100 80" width={size} height={size * 0.8}>
-          <path d="M10 10 L50 50 L90 10 L90 30 L50 70 L10 30 Z" fill={color} />
+          <path d="M10 10 L50 50 L90 10 L90 30 L50 70 L10 30 Z" fill="currentColor" />
         </svg>
       );
     case "halfmoon":
       return (
         <svg viewBox="0 0 100 60" width={size} height={size * 0.6}>
-          <path d="M0 60 A 50 50 0 0 1 100 60 Z" fill={color} />
+          <path d="M0 60 A 50 50 0 0 1 100 60 Z" fill="currentColor" />
         </svg>
       );
     case "triangle-up":
       return (
         <svg viewBox="0 0 100 100" width={size} height={size}>
-          <path d="M50 10 L90 85 L10 85 Z" fill={color} />
+          <path d="M50 10 L90 85 L10 85 Z" fill="currentColor" />
         </svg>
       );
     default:
@@ -107,18 +106,17 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Infinite marquee of colored shapes */}
-      <div className="mt-16 overflow-hidden">
-        <div
-          className="flex items-center gap-10 md:gap-16 w-max"
-          style={{ animation: "marquee-left 32s linear infinite" }}
-        >
-          {[...SHAPES, ...SHAPES].map((s, i) => (
-            <div key={i} className="shrink-0 flex items-center justify-center">
-              <Shape type={s.type} color={s.color} />
-            </div>
-          ))}
-        </div>
+      {/* Shapes spread across the footer — each slowly cycles color, staggered */}
+      <div className="mt-16 px-8 md:px-14 flex items-center justify-between gap-2">
+        {SHAPES.map((type, i) => (
+          <div
+            key={i}
+            className="shape-hue"
+            style={{ animationDelay: `${-i * 1.1}s` }}
+          >
+            <Shape type={type} />
+          </div>
+        ))}
       </div>
 
       <div className="mt-10 px-8 md:px-14 text-[0.65rem] tracking-[0.3em] text-white/40 uppercase flex justify-between">

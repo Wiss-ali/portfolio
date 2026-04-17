@@ -85,30 +85,30 @@ export default function Hero() {
 
       <div
         ref={headRef}
-        className="pointer-events-none absolute inset-x-0 top-[24vh] flex justify-center z-20 will-change-transform"
+        className="pointer-events-none absolute inset-x-0 top-[22vh] flex justify-center z-20 will-change-transform"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/robot-head.png"
           alt="Wiss — 3D head"
-          className="w-[42vw] min-w-[300px] max-w-[660px] h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
+          className="w-[46vw] min-w-[320px] max-w-[740px] h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
         />
       </div>
 
-      <div className="absolute left-[5%] md:left-[7%] top-[46vh] z-30 max-w-[18rem]">
-        <p className="text-[0.78rem] md:text-sm tracking-[0.16em] leading-relaxed text-white/90 uppercase">
+      <div className="absolute left-[14%] md:left-[16%] top-[48vh] z-30 max-w-[20rem]">
+        <p className="text-[0.85rem] md:text-base tracking-[0.16em] leading-relaxed text-white/90 uppercase">
           A web designer passionate
           <br />
           about crafting bold and
           <br />
-          memorable projects <span className="text-base">😉</span>
+          memorable projects <span className="text-lg">😉</span>
         </p>
       </div>
 
       <a
         href="#contact"
         ref={btnRef}
-        className="btn-pill btn-pill-glow absolute right-[5%] md:right-[7%] top-[46vh] z-30 will-change-transform"
+        className="btn-pill btn-pill-glow absolute right-[14%] md:right-[16%] top-[48vh] z-30 will-change-transform"
       >
         CONTACT ME
       </a>
