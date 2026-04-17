@@ -2,37 +2,56 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const DECOR = [
+type Decor = {
+  src: string;
+  alt: string;
+  side: "left" | "right";
+  pair: "top" | "bottom";
+  vPos: { top?: string; bottom?: string };
+  restX: number;
+  rotate: number;
+  delay: number;
+};
+
+const DECOR: Decor[] = [
   {
     src: "/about-1.png",
     alt: "About decoration 1",
-    side: "left" as const,
-    pair: "top" as const,
-    pos: "top-[6%] md:top-[10%]",
+    side: "left",
+    pair: "top",
+    vPos: { top: "3%" },
+    restX: 0,
+    rotate: 0,
     delay: 0,
   },
   {
     src: "/about-2.png",
     alt: "About decoration 2",
-    side: "right" as const,
-    pair: "top" as const,
-    pos: "top-[6%] md:top-[10%]",
+    side: "right",
+    pair: "top",
+    vPos: { top: "3%" },
+    restX: 10,
+    rotate: 0,
     delay: 0.1,
   },
   {
     src: "/about-3.png",
     alt: "About decoration 3",
-    side: "left" as const,
-    pair: "bottom" as const,
-    pos: "bottom-[6%] md:bottom-[10%]",
+    side: "left",
+    pair: "bottom",
+    vPos: { bottom: "8%" },
+    restX: -10,
+    rotate: 0,
     delay: 0,
   },
   {
     src: "/about-4.png",
     alt: "About decoration 4",
-    side: "right" as const,
-    pair: "bottom" as const,
-    pos: "bottom-[6%] md:bottom-[10%]",
+    side: "right",
+    pair: "bottom",
+    vPos: { bottom: "8%" },
+    restX: -5,
+    rotate: 15,
     delay: 0.1,
   },
 ];
@@ -85,16 +104,20 @@ export default function About() {
       className="relative w-full min-h-screen bg-black py-28 md:py-36 overflow-hidden flex items-center justify-center"
     >
       {DECOR.map((d, i) => {
-        const base = "absolute pointer-events-none select-none will-change-transform transition-transform duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)]";
-        const offscreen = d.side === "left" ? "-translate-x-[120%]" : "translate-x-[120%]";
-        const resting = d.side === "left" ? "-translate-x-[10%]" : "translate-x-[10%]";
-        const anchor = d.side === "left" ? "left-0" : "right-0";
         const isIn = d.pair === "top" ? topIn : bottomIn;
+        const anchor = d.side === "left" ? { left: 0 } : { right: 0 };
+        const offX = d.side === "left" ? -120 : 120;
+        const x = isIn ? d.restX : offX;
         return (
           <div
             key={i}
-            className={`${base} ${d.pos} ${anchor} ${isIn ? resting : offscreen}`}
-            style={{ transitionDelay: `${d.delay}s` }}
+            className="absolute pointer-events-none select-none will-change-transform transition-transform duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)]"
+            style={{
+              ...anchor,
+              ...d.vPos,
+              transform: `translateX(${x}%) rotate(${d.rotate}deg)`,
+              transitionDelay: `${d.delay}s`,
+            }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
