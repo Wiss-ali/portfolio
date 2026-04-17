@@ -43,7 +43,7 @@ export default function Hero() {
           const k = (1 - dist / radius) * 10;
           btnTiltX = (-dy / radius) * k;
           btnTiltY = (dx / radius) * k;
-          btnTiltZ = -(1 - dist / radius) * 5;
+          btnTiltZ = -(1 - dist / radius) * 7;
         } else {
           btnTiltX = 0;
           btnTiltY = 0;
@@ -82,14 +82,14 @@ export default function Hero() {
     <section
       ref={rootRef}
       id="hero"
-      className="relative w-full min-h-screen overflow-hidden bg-black flex flex-col pt-10 md:pt-12 lg:pt-14 xl:pt-28 2xl:pt-40 pb-12"
+      className="relative w-full min-h-screen overflow-hidden bg-black flex flex-col pt-10 md:pt-12 min-[2000px]:pt-32 min-[2400px]:pt-40 pb-12"
     >
       <h1 className="font-title font-title-grad text-[clamp(3.5rem,14vw,18rem)] leading-[0.9] text-center select-none pointer-events-none px-4">
         HI, I&apos;M WISS
       </h1>
 
       <div className="flex-1 grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-8 md:gap-6 px-6 mt-4 md:mt-0">
-        <p className="justify-self-center md:justify-self-end md:-mt-[12vw] xl:-mt-[14vw] 2xl:-mt-[17vw] text-[0.85rem] md:text-sm lg:text-base tracking-[0.16em] leading-relaxed text-white/90 uppercase max-w-[18rem] text-center md:text-right order-2 md:order-1">
+        <p className="justify-self-center md:justify-self-end md:-mt-[12vw] min-[2000px]:-mt-[15vw] min-[2400px]:-mt-[17vw] text-[0.85rem] md:text-sm lg:text-base tracking-[0.16em] leading-relaxed text-white/90 uppercase max-w-[18rem] text-center md:text-right order-2 md:order-1">
           A web designer passionate
           <br />
           about crafting bold and
@@ -97,7 +97,7 @@ export default function Hero() {
           memorable projects <span className="text-lg">😉</span>
         </p>
 
-        <div className="justify-self-center order-1 md:order-2 md:-mt-[8vw] xl:-mt-[10vw] 2xl:-mt-[13vw]">
+        <div className="justify-self-center order-1 md:order-2 md:-mt-[8vw] min-[2000px]:-mt-[11vw] min-[2400px]:-mt-[13vw]">
           <div ref={headRef} className="pointer-events-none will-change-transform">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -111,7 +111,7 @@ export default function Hero() {
         <a
           href="#contact"
           ref={btnRef}
-          className="btn-pill btn-pill-glow will-change-transform justify-self-center md:justify-self-start order-3 md:-mt-[12vw] xl:-mt-[14vw] 2xl:-mt-[17vw]"
+          className="btn-pill btn-pill-glow will-change-transform justify-self-center md:justify-self-start order-3 md:-mt-[12vw] min-[2000px]:-mt-[15vw] min-[2400px]:-mt-[17vw]"
         >
           CONTACT ME
         </a>
