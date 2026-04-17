@@ -7,35 +7,40 @@ const DECOR = [
     src: "/about-1.png",
     alt: "About decoration 1",
     side: "left" as const,
-    pos: "top-[8%] md:top-[12%]",
+    pair: "top" as const,
+    pos: "top-[6%] md:top-[10%]",
     delay: 0,
   },
   {
     src: "/about-2.png",
     alt: "About decoration 2",
     side: "right" as const,
-    pos: "top-[8%] md:top-[12%]",
-    delay: 0,
+    pair: "top" as const,
+    pos: "top-[6%] md:top-[10%]",
+    delay: 0.1,
   },
   {
     src: "/about-3.png",
     alt: "About decoration 3",
     side: "left" as const,
-    pos: "bottom-[8%] md:bottom-[12%]",
-    delay: 0.25,
+    pair: "bottom" as const,
+    pos: "bottom-[6%] md:bottom-[10%]",
+    delay: 0,
   },
   {
     src: "/about-4.png",
     alt: "About decoration 4",
     side: "right" as const,
-    pos: "bottom-[8%] md:bottom-[12%]",
-    delay: 0.25,
+    pair: "bottom" as const,
+    pos: "bottom-[6%] md:bottom-[10%]",
+    delay: 0.1,
   },
 ];
 
 export default function About() {
   const rootRef = useRef<HTMLElement | null>(null);
-  const [decorIn, setDecorIn] = useState(false);
+  const [topIn, setTopIn] = useState(false);
+  const [bottomIn, setBottomIn] = useState(false);
 
   useEffect(() => {
     const el = rootRef.current;
@@ -58,13 +63,12 @@ export default function About() {
     const sectionIo = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setDecorIn(true);
-            sectionIo.unobserve(entry.target);
-          }
+          const r = entry.intersectionRatio;
+          setTopIn(r >= 0.18);
+          setBottomIn(r >= 0.5);
         });
       },
-      { threshold: 0.15 }
+      { threshold: Array.from({ length: 21 }, (_, i) => i / 20) }
     );
     sectionIo.observe(el);
 
@@ -85,17 +89,18 @@ export default function About() {
         const offscreen = d.side === "left" ? "-translate-x-[120%]" : "translate-x-[120%]";
         const resting = d.side === "left" ? "-translate-x-[10%]" : "translate-x-[10%]";
         const anchor = d.side === "left" ? "left-0" : "right-0";
+        const isIn = d.pair === "top" ? topIn : bottomIn;
         return (
           <div
             key={i}
-            className={`${base} ${d.pos} ${anchor} ${decorIn ? resting : offscreen}`}
+            className={`${base} ${d.pos} ${anchor} ${isIn ? resting : offscreen}`}
             style={{ transitionDelay: `${d.delay}s` }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={d.src}
               alt={d.alt}
-              className="w-[26vw] max-w-[260px] md:max-w-[300px] h-auto object-contain"
+              className="w-[44vw] max-w-[442px] md:max-w-[510px] h-auto object-contain"
             />
           </div>
         );
