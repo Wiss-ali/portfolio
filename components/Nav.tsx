@@ -1,8 +1,7 @@
 "use client";
 
 const items = [
-  { label: "ABOUT", href: "#about" },
-  { label: "CUSTOMERS", href: "#customers" },
+  { label: "ABOUT ME", href: "#about" },
   { label: "PROJECTS", href: "#projects" },
   { label: "CONTACT", href: "#contact" },
 ];

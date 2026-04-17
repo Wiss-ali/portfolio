@@ -28,7 +28,7 @@ export default function Contact() {
     <section
       ref={rootRef}
       id="contact"
-      className="surface-white relative w-full py-24 md:py-32 overflow-hidden -mt-12"
+      className="surface-white relative w-full min-h-screen py-24 md:py-28 overflow-hidden -mt-12 flex items-center"
     >
       {/* Decorative 3D shapes */}
       <div
@@ -46,7 +46,7 @@ export default function Contact() {
         <div className="w-full h-full rounded-full bg-gradient-to-br from-violet-400 via-purple-500 to-indigo-600 shadow-[0_20px_40px_rgba(0,0,0,0.2)]" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-8 md:px-12 grid md:grid-cols-2 gap-12 md:gap-16 items-start">
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-8 md:px-12 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
         <div>
           <h2
             data-reveal
