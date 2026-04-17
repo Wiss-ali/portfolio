@@ -1,40 +1,41 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const DECOR = [
   {
-    src: "/about-1.svg",
+    src: "/about-1.png",
     alt: "About decoration 1",
     side: "left" as const,
-    pos: "top-[10%] md:top-[14%]",
+    pos: "top-[8%] md:top-[12%]",
     delay: 0,
   },
   {
-    src: "/about-2.svg",
+    src: "/about-2.png",
     alt: "About decoration 2",
     side: "right" as const,
-    pos: "top-[10%] md:top-[14%]",
+    pos: "top-[8%] md:top-[12%]",
     delay: 0,
   },
   {
-    src: "/about-3.svg",
+    src: "/about-3.png",
     alt: "About decoration 3",
     side: "left" as const,
-    pos: "bottom-[10%] md:bottom-[14%]",
+    pos: "bottom-[8%] md:bottom-[12%]",
     delay: 0.25,
   },
   {
-    src: "/about-4.svg",
+    src: "/about-4.png",
     alt: "About decoration 4",
     side: "right" as const,
-    pos: "bottom-[10%] md:bottom-[14%]",
+    pos: "bottom-[8%] md:bottom-[12%]",
     delay: 0.25,
   },
 ];
 
 export default function About() {
   const rootRef = useRef<HTMLElement | null>(null);
+  const [decorIn, setDecorIn] = useState(false);
 
   useEffect(() => {
     const el = rootRef.current;
@@ -53,7 +54,24 @@ export default function About() {
       { threshold: 0.2 }
     );
     reveals.forEach((r) => io.observe(r));
-    return () => io.disconnect();
+
+    const sectionIo = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setDecorIn(true);
+            sectionIo.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    sectionIo.observe(el);
+
+    return () => {
+      io.disconnect();
+      sectionIo.disconnect();
+    };
   }, []);
 
   return (
@@ -63,22 +81,21 @@ export default function About() {
       className="relative w-full min-h-screen bg-black py-28 md:py-36 overflow-hidden flex items-center justify-center"
     >
       {DECOR.map((d, i) => {
-        const sideClass =
-          d.side === "left"
-            ? "left-0 -translate-x-full [&.is-in]:-translate-x-[10%]"
-            : "right-0 translate-x-full [&.is-in]:translate-x-[10%]";
+        const base = "absolute pointer-events-none select-none will-change-transform transition-transform duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)]";
+        const offscreen = d.side === "left" ? "-translate-x-[120%]" : "translate-x-[120%]";
+        const resting = d.side === "left" ? "-translate-x-[10%]" : "translate-x-[10%]";
+        const anchor = d.side === "left" ? "left-0" : "right-0";
         return (
           <div
             key={i}
-            data-reveal
-            className={`absolute ${d.pos} ${sideClass} pointer-events-none select-none transition-transform duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform`}
+            className={`${base} ${d.pos} ${anchor} ${decorIn ? resting : offscreen}`}
             style={{ transitionDelay: `${d.delay}s` }}
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={d.src}
               alt={d.alt}
-              className="w-[28vw] max-w-[280px] md:max-w-[320px] h-auto object-contain"
+              className="w-[26vw] max-w-[260px] md:max-w-[300px] h-auto object-contain"
             />
           </div>
         );
