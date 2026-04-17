@@ -77,14 +77,14 @@ export default function Hero() {
     <section
       ref={rootRef}
       id="hero"
-      className="relative w-full min-h-screen overflow-hidden bg-black flex flex-col pt-24 md:pt-28 pb-12"
+      className="relative w-full min-h-screen overflow-hidden bg-black flex flex-col pt-16 md:pt-20 pb-12"
     >
       <h1 className="font-title font-title-grad text-[clamp(3.5rem,16vw,17rem)] leading-[0.9] text-center select-none pointer-events-none px-4">
         HI, I&apos;M WISS
       </h1>
 
       <div className="flex-1 grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-8 md:gap-6 px-6 mt-4 md:mt-0">
-        <p className="justify-self-center md:justify-self-end md:-mt-[8vw] text-[0.85rem] md:text-sm lg:text-base tracking-[0.16em] leading-relaxed text-white/90 uppercase max-w-[18rem] text-center md:text-right order-2 md:order-1">
+        <p className="justify-self-center md:justify-self-end md:-mt-[12vw] text-[0.85rem] md:text-sm lg:text-base tracking-[0.16em] leading-relaxed text-white/90 uppercase max-w-[18rem] text-center md:text-right order-2 md:order-1">
           A web designer passionate
           <br />
           about crafting bold and
@@ -92,7 +92,7 @@ export default function Hero() {
           memorable projects <span className="text-lg">😉</span>
         </p>
 
-        <div className="justify-self-center order-1 md:order-2 md:-mt-[7vw]">
+        <div className="justify-self-center order-1 md:order-2 md:-mt-[8vw]">
           <div ref={headRef} className="pointer-events-none will-change-transform">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -106,7 +106,7 @@ export default function Hero() {
         <a
           href="#contact"
           ref={btnRef}
-          className="btn-pill btn-pill-glow will-change-transform justify-self-center md:justify-self-start order-3 md:-mt-[8vw]"
+          className="btn-pill btn-pill-glow will-change-transform justify-self-center md:justify-self-start order-3 md:-mt-[12vw]"
         >
           CONTACT ME
         </a>
