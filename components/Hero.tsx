@@ -83,8 +83,8 @@ export default function Hero() {
         HI, I&apos;M WISS
       </h1>
 
-      <div className="flex-1 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-6 px-6 mt-4 md:mt-0">
-        <p className="md:-mt-[5vw] text-[0.85rem] md:text-sm lg:text-base tracking-[0.16em] leading-relaxed text-white/90 uppercase max-w-[18rem] text-center md:text-right order-2 md:order-1">
+      <div className="flex-1 grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-8 md:gap-6 px-6 mt-4 md:mt-0">
+        <p className="justify-self-center md:justify-self-end md:-mt-[8vw] text-[0.85rem] md:text-sm lg:text-base tracking-[0.16em] leading-relaxed text-white/90 uppercase max-w-[18rem] text-center md:text-right order-2 md:order-1">
           A web designer passionate
           <br />
           about crafting bold and
@@ -92,7 +92,7 @@ export default function Hero() {
           memorable projects <span className="text-lg">😉</span>
         </p>
 
-        <div className="order-1 md:order-2 md:-mt-[10vw]">
+        <div className="justify-self-center order-1 md:order-2 md:-mt-[7vw]">
           <div ref={headRef} className="pointer-events-none will-change-transform">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -106,7 +106,7 @@ export default function Hero() {
         <a
           href="#contact"
           ref={btnRef}
-          className="btn-pill btn-pill-glow will-change-transform order-3 md:-mt-[5vw]"
+          className="btn-pill btn-pill-glow will-change-transform justify-self-center md:justify-self-start order-3 md:-mt-[8vw]"
         >
           CONTACT ME
         </a>
