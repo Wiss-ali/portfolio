@@ -36,6 +36,22 @@ body {
   transform-origin: center center;
 }
 
+/* Hero title: Poppins ExtraBold, slightly stretched, soft top→bottom gradient */
+.font-title {
+  font-family: var(--font-poppins), Impact, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  transform: scaleX(1.08);
+  transform-origin: center center;
+}
+.font-title-grad {
+  background: linear-gradient(180deg, #ffffff 0%, #ffffff 62%, #b5b5b5 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
 .text-outline {
   -webkit-text-stroke: 1.5px #ffffff;
   color: transparent;

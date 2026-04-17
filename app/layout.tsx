@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Anton } from "next/font/google";
+import { Geist, Geist_Mono, Anton, Poppins } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import Nav from "@/components/Nav";
@@ -20,6 +20,12 @@ const anton = Anton({
   subsets: ["latin"],
 });
 
+const poppins = Poppins({
+  variable: "--font-poppins",
+  weight: ["800"],
+  subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
   title: "Wiss — Portfolio",
   description: "Creator of striking, memorable websites.",
@@ -33,7 +39,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${anton.variable} antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${anton.variable} ${poppins.variable} antialiased`}
     >
       <body className="bg-black text-white">
         <SmoothScroll>

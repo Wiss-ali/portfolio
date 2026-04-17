@@ -79,12 +79,12 @@ export default function Hero() {
       id="hero"
       className="relative w-full min-h-screen overflow-hidden bg-black flex flex-col pt-24 md:pt-28 pb-12"
     >
-      <h1 className="font-display font-flat text-[clamp(3.5rem,17vw,18rem)] leading-[0.85] text-center text-white select-none pointer-events-none px-4">
+      <h1 className="font-title font-title-grad text-[clamp(3.5rem,16vw,17rem)] leading-[0.9] text-center select-none pointer-events-none px-4">
         HI, I&apos;M WISS
       </h1>
 
-      <div className="flex-1 grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-8 md:gap-10 px-6 md:px-16 mt-6">
-        <p className="justify-self-center md:justify-self-start text-[0.85rem] md:text-sm lg:text-base tracking-[0.16em] leading-relaxed text-white/90 uppercase max-w-[18rem] text-center md:text-left order-2 md:order-1">
+      <div className="flex-1 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-6 px-6 mt-4 md:mt-0">
+        <p className="text-[0.85rem] md:text-sm lg:text-base tracking-[0.16em] leading-relaxed text-white/90 uppercase max-w-[18rem] text-center md:text-right order-2 md:order-1">
           A web designer passionate
           <br />
           about crafting bold and
@@ -92,22 +92,21 @@ export default function Hero() {
           memorable projects <span className="text-lg">😉</span>
         </p>
 
-        <div
-          ref={headRef}
-          className="pointer-events-none justify-self-center will-change-transform order-1 md:order-2"
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/robot-head.png"
-            alt="Wiss — 3D head"
-            className="w-[60vw] max-w-[360px] md:w-[34vw] md:max-w-[500px] h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
-          />
+        <div className="order-1 md:order-2 md:-mt-[9vw]">
+          <div ref={headRef} className="pointer-events-none will-change-transform">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/robot-head.png"
+              alt="Wiss — 3D head"
+              className="w-[70vw] max-w-[420px] md:w-[42vw] md:max-w-[620px] h-auto object-contain [filter:drop-shadow(0_-12px_18px_rgba(0,0,0,0.7))_drop-shadow(0_30px_40px_rgba(0,0,0,0.5))]"
+            />
+          </div>
         </div>
 
         <a
           href="#contact"
           ref={btnRef}
-          className="btn-pill btn-pill-glow justify-self-center md:justify-self-end will-change-transform order-3"
+          className="btn-pill btn-pill-glow will-change-transform order-3"
         >
           CONTACT ME
         </a>
