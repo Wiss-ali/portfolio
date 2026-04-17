@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
 const items = [
   { label: "ABOUT", href: "#about" },
   { label: "CUSTOMERS", href: "#customers" },
@@ -10,24 +8,9 @@ const items = [
 ];
 
 export default function Nav() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 pt-4 pointer-events-none">
-      <div
-        className={`pointer-events-auto flex items-center justify-between rounded-full px-6 md:px-8 py-3 md:py-4 transition-all duration-300 ${
-          scrolled
-            ? "bg-black/70 backdrop-blur-md border border-white/10"
-            : "bg-black/30 backdrop-blur-sm border border-white/5"
-        }`}
-      >
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/55 backdrop-blur-md">
+      <div className="flex items-center justify-between px-6 md:px-10 py-4 md:py-5">
         <div className="font-display text-lg md:text-xl tracking-wide text-white">
           WISS<span className="text-[#c13df0]">.</span>
         </div>

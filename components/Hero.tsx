@@ -79,23 +79,23 @@ export default function Hero() {
       id="hero"
       className="relative w-full min-h-screen overflow-hidden bg-black"
     >
-      <h1 className="font-display font-flat absolute inset-x-0 top-[14vh] z-10 text-[clamp(4rem,16vw,17rem)] leading-[0.9] text-center text-white select-none pointer-events-none">
+      <h1 className="font-display font-flat absolute inset-x-0 top-[10vh] z-10 text-[clamp(4rem,19vw,20rem)] leading-[0.85] text-center text-white select-none pointer-events-none px-[2vw]">
         HI, I&apos;M WISS
       </h1>
 
       <div
         ref={headRef}
-        className="pointer-events-none absolute inset-0 flex items-end justify-center pb-[4vh] z-20 will-change-transform"
+        className="pointer-events-none absolute inset-x-0 top-[24vh] flex justify-center z-20 will-change-transform"
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/robot-head.png"
           alt="Wiss — 3D head"
-          className="w-[46vw] min-w-[320px] max-w-[720px] h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
+          className="w-[42vw] min-w-[300px] max-w-[660px] h-auto object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.5)]"
         />
       </div>
 
-      <div className="absolute left-[6%] md:left-[10%] top-[58%] -translate-y-1/2 z-30 max-w-[18rem]">
+      <div className="absolute left-[5%] md:left-[7%] top-[46vh] z-30 max-w-[18rem]">
         <p className="text-[0.78rem] md:text-sm tracking-[0.16em] leading-relaxed text-white/90 uppercase">
           A web designer passionate
           <br />
@@ -108,7 +108,7 @@ export default function Hero() {
       <a
         href="#contact"
         ref={btnRef}
-        className="btn-pill btn-pill-glow absolute right-[6%] md:right-[10%] top-[58%] -translate-y-1/2 z-30 will-change-transform"
+        className="btn-pill btn-pill-glow absolute right-[5%] md:right-[7%] top-[46vh] z-30 will-change-transform"
       >
         CONTACT ME
       </a>
