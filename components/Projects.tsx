@@ -20,12 +20,12 @@ export default function Projects() {
       className="surface-black relative w-full -mt-12 pt-20 pb-32"
     >
       <div className="text-center py-12 md:py-16">
-        <h2 className="font-display text-[clamp(4rem,14vw,13rem)] leading-[0.9] text-white">
+        <h2 className="font-display font-flat text-[clamp(4rem,14vw,13rem)] leading-[0.9] text-white">
           PROJECTS
         </h2>
       </div>
 
-      <div className="px-4 md:px-10">
+      <div className="w-4/5 mx-auto">
         {PROJECTS.map((p, i) => (
           <div
             key={p.n}
@@ -56,13 +56,20 @@ export default function Projects() {
               </header>
 
               <div className="grid grid-cols-2 gap-3 md:gap-4 px-4 md:px-6 pt-5 md:pt-8 pb-4 md:pb-6 h-[calc(100%-96px)]">
-                {p.palette.map((c, j) => (
+                <div
+                  style={{ background: p.palette[0] }}
+                  className="rounded-2xl w-full h-full min-h-[80px]"
+                />
+                <div className="grid grid-rows-2 gap-3 md:gap-4">
                   <div
-                    key={j}
-                    style={{ background: c }}
+                    style={{ background: p.palette[1] }}
                     className="rounded-2xl w-full h-full min-h-[80px]"
                   />
-                ))}
+                  <div
+                    style={{ background: p.palette[2] }}
+                    className="rounded-2xl w-full h-full min-h-[80px]"
+                  />
+                </div>
               </div>
             </article>
           </div>

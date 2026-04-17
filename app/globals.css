@@ -30,6 +30,12 @@ body {
   letter-spacing: -0.02em;
 }
 
+/* Flatter display variant — squashes letters vertically for a heavier look */
+.font-flat {
+  transform: scaleY(0.82);
+  transform-origin: center center;
+}
+
 .text-outline {
   -webkit-text-stroke: 1.5px #ffffff;
   color: transparent;
