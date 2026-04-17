@@ -123,7 +123,7 @@ export default function About() {
             <img
               src={d.src}
               alt={d.alt}
-              className="w-[44vw] max-w-[442px] md:max-w-[510px] h-auto object-contain"
+              className="w-[44vw] max-w-[380px] md:max-w-[380px] min-[2000px]:max-w-[520px] h-auto object-contain"
             />
           </div>
         );
