@@ -56,7 +56,7 @@ export default function Hero() {
 
       const head = headRef.current;
       if (head) {
-        head.style.transform = `translate3d(${curX * 34}px, ${curY * 6}px, 0)`;
+        head.style.transform = `translate3d(${curX * 34}px, 0, 0)`;
       }
       const btn = btnRef.current;
       if (btn) {
