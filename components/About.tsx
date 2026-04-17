@@ -4,28 +4,28 @@ import { useEffect, useRef } from "react";
 
 const DECOR = [
   {
-    src: "/about-1.png",
+    src: "/about-1.svg",
     alt: "About decoration 1",
     side: "left" as const,
     pos: "top-[10%] md:top-[14%]",
     delay: 0,
   },
   {
-    src: "/about-2.png",
+    src: "/about-2.svg",
     alt: "About decoration 2",
     side: "right" as const,
     pos: "top-[10%] md:top-[14%]",
     delay: 0,
   },
   {
-    src: "/about-3.png",
+    src: "/about-3.svg",
     alt: "About decoration 3",
     side: "left" as const,
     pos: "bottom-[10%] md:bottom-[14%]",
     delay: 0.25,
   },
   {
-    src: "/about-4.png",
+    src: "/about-4.svg",
     alt: "About decoration 4",
     side: "right" as const,
     pos: "bottom-[10%] md:bottom-[14%]",
