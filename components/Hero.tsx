@@ -77,7 +77,7 @@ export default function Hero() {
     <section
       ref={rootRef}
       id="hero"
-      className="relative w-full min-h-screen overflow-hidden bg-black flex flex-col pt-16 md:pt-20 pb-12"
+      className="relative w-full min-h-screen overflow-hidden bg-black flex flex-col pt-10 md:pt-12 pb-12"
     >
       <h1 className="font-title font-title-grad text-[clamp(3.5rem,16vw,17rem)] leading-[0.9] text-center select-none pointer-events-none px-4">
         HI, I&apos;M WISS
